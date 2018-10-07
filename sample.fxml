@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <MenuBar styleClass="menubar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#Exit" text="Exit " />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Add" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Note">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Favorite" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <MenuButton fx:id="menubutton1" mnemonicParsing="false" prefHeight="23.0" prefWidth="118.0" styleClass="menubutton" text="Languages" BorderPane.alignment="TOP_LEFT">
+          <graphic>
+              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                      <Image url="@image/images.png" />
+                  </image>
+              </ImageView>
+          </graphic>
+        <items>
+          <MenuItem mnemonicParsing="false" styleClass="menubut1" text="Anh-Việt">
+              <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                      <image>
+                          <Image url="@image/Eng.png" />
+                      </image>
+                  </ImageView>
+              </graphic>
+          </MenuItem>
+          <MenuItem mnemonicParsing="false" styleClass="menubut2" text="Việt-Anh">
+              <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                      <image>
+                          <Image url="@image/Vn1.png" />
+                      </image>
+                  </ImageView>
+              </graphic>
+          </MenuItem>
+        </items>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </MenuButton>
+   </left>
+   <bottom>
+   </bottom>
+   <right>
+      <TableView fx:id="table" prefHeight="352.0" prefWidth="142.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="TableCl" prefWidth="140.0" styleClass="ListWord" text="Menu Word" />
+        </columns>
+      </TableView>
+   </right>
+   <bottom>
+      <TextField fx:id="textField" prefHeight="18.0" prefWidth="590.0" promptText="Search" styleClass="input" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></TextField>
+   </bottom>
+   <center>
+      <WebView fx:id="Explain" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
