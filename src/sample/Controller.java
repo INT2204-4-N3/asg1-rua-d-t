@@ -74,8 +74,8 @@ public class Controller {
     }
 
     public String getNewString() {
-        if(getNum()==0) { newString="C:\\BT lon UET diction\\asg1-rua-d-t\\src\\data\\Anh-Viet.txt";}
-        else { newString="C:\\BT lon UET diction\\asg1-rua-d-t\\src\\data\\Viet-Anh.txt";}
+        if(getNum()==0) { newString="src\\Sourse\\Anh-Viet.txt";}
+        else { newString="src\\Sourse\\Viet-Anh.txt";}
         return newString;
     }
     public void Exit() {
@@ -95,7 +95,7 @@ public class Controller {
     public void initialize() throws Exception {
         newString=getNewString();
         t = new ListWordManager();
-//     t.CreatListWord(newString);
+         t.CreatListWord(newString);
         list = new ArrayList<Word>();
         Set<String> set = t.getList1().keySet();
         for (String key : set) {

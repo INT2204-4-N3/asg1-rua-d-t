@@ -1,10 +1,9 @@
 package sample;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ListWordManager {
    private   Map <String, String> List1= new HashMap<String, String>();
@@ -17,8 +16,8 @@ public class ListWordManager {
 
     }
     public void CreatListWord(String Name_File) throws Exception {
-        fr = new FileReader(Name_File);
-        br= new BufferedReader(fr);
+       FileReader fr = new FileReader(Name_File);
+       BufferedReader br= new BufferedReader(fr);
         while ((i = br.readLine()) != null) {
           //  System.out.println(i);
             if(i.indexOf("<")>0) {
