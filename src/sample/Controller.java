@@ -3,44 +3,32 @@ package sample;
 import GoogleAPI.Audio;
 import GoogleAPI.GoogleTranslate;
 import GoogleAPI.Language;
-import javazoom.jl.decoder.JavaLayerException;
-import java.io.IOException;
-import java.io.InputStream;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import java.io.BufferedReader;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.*;
-import java.util.List;
-import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import java.lang.StringBuffer;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.web.WebView;
-import javafx.scene.web.WebEngine;
-import  javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
-
-import com.sun.speech.freetts.Voice;
-import com.sun.speech.freetts.VoiceManager;
+import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import javafx.util.Pair;
+import javazoom.jl.decoder.JavaLayerException;
 
-import javax.swing.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 public class Controller {
     @FXML
@@ -107,7 +95,7 @@ public class Controller {
     public void initialize() throws Exception {
         newString=getNewString();
         t = new ListWordManager();
-        t.CreatListWord(newString);
+     t.CreatListWord(newString);
         list = new ArrayList<Word>();
         Set<String> set = t.getList1().keySet();
         for (String key : set) {
@@ -164,6 +152,11 @@ public class Controller {
                 alert.setTitle("Notice");
                 alert.setHeaderText("Oh!! Sorry :((((");
                 alert.setContentText("We don't find your word in dictionary");
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(
+                        getClass().getResource("application.css").toExternalForm());
+                dialogPane.getStyleClass().add("myDialogSearch");
+
                 alert.showAndWait();
             }
             else {
@@ -227,6 +220,10 @@ public class Controller {
         pro.setPromptText("pronuciation");
         TextField kind= new TextField();
         kind.setPromptText("kind of word");
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("application.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialogSearch");
 
         gridPane.add(new Label("Word: "),0,0);
         gridPane.add(word,1,0);
@@ -279,6 +276,10 @@ public class Controller {
         word.setPromptText("your word");
         TextField ex= new TextField();
         ex.setPromptText("change to");
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("application.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialogSearch");
 
         gridPane.add(new Label("Word: "),0,0);
         gridPane.add(word,1,0);
@@ -343,6 +344,10 @@ public class Controller {
 
         TextField word = new TextField();
         word.setPromptText("input your word");
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("application.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialogSearch");
 
         gridPane.add(new Label("Word: "), 0, 0);
         gridPane.add(word, 1, 0);
@@ -437,4 +442,6 @@ public class Controller {
             engine.loadContent(str);
         }
     }
+
+
 }

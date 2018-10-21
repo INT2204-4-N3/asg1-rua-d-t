@@ -1,5 +1,4 @@
 
-
 .menubut1 {
     -fx-font-family: "Comic Sans MS";
 }
@@ -7,7 +6,7 @@
     -fx-font-family: "Comic Sans MS"
 }
 .input {
-    -fx-border-color:  red;
+    -fx-border-color: rgb(57, 127, 90);
 }
 .menubutton {
     -fx-background-color: rgba(202,229,232,1) ;
@@ -17,11 +16,115 @@
     -fx-background-color: rgba(202,229,232,1) ;
 }
 
-.round-red {
-    -fx-background-color: linear-gradient(#9dcb9d,#8fbc8f);
+.round-red1 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
     -fx-background-radius: 30;
     -fx-background-insets: 0;
     -fx-text-fill: white;
+
+    -fx-background-image:url("image/add.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30 30;
+}
+.round-red2 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/edit.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30 30;
+}
+.round-red3 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/remove.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30 30;
+}
+.round-red4 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/Anh.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30 30;
+}
+.round-red5 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/Viet.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30 30;
+}
+.round-red6 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/exit.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30 30;
+}
+.round-red7 {
+    -fx-background-color: linear-gradient(rgb(243, 243, 243),rgb(243, 243, 243));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/search.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30 30;
+}
+.round-red8 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/speaker.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30,30;
+}
+.round-red9 {
+     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+     -fx-background-radius: 30;
+     -fx-background-insets: 0;
+     -fx-text-fill: white;
+
+     -fx-background-image:url("image/wikipedia.png");
+     -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+     -fx-background-repeat: no-repeat;
+     -fx-background-size:30,30;
+ }
+.round-red10 {
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+    -fx-background-image:url("image/Google_Translate_Icon.png");
+    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:30,30;
 }
 .shiny-orange {
     -fx-background-color:
@@ -37,8 +140,43 @@
     -fx-font-size: 14px;
     -fx-padding: 10 20 10 20;
 }
-
+.Webview{
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-border-color: rgb(57, 127, 90);
+}
 
 .pane {
     -fx-background-color:  #8fbc8f;
+    -fx-background-image:url("image/animal_4-08-512.png"), url("image/q.png");
+    -fx-background-position: 8 19, 0 0;/* vị trí ảnh*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:50 50, 750 183;
 }
+.myDialogSearch{
+    -fx-background-color: #8fbc8f;
+}
+.myDialogSearch > *.button-bar > *.container{
+    -fx-background-color: #8fbc8f;
+}
+.myDialogSearch > *.label.content{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 80;
+    -fx-background-insets: 0;
+}
+.myDialogSearch > *.header-panel{
+    -fx-background-color: #8fbc8f;
+}
+
+.myDialogSearch > *.header-panel *.label{
+    -fx-font-size: 18px;
+    -fx-font-style: italic;
+    -fx-fill: #8fbc8f;
+}
+.myDialogSearch >  *.button{
+    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;}
+
