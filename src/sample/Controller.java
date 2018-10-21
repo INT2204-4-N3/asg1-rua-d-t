@@ -95,7 +95,7 @@ public class Controller {
     public void initialize() throws Exception {
         newString=getNewString();
         t = new ListWordManager();
-     t.CreatListWord(newString);
+//     t.CreatListWord(newString);
         list = new ArrayList<Word>();
         Set<String> set = t.getList1().keySet();
         for (String key : set) {
