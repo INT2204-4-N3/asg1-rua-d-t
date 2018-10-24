@@ -110,6 +110,7 @@ public class Controller {
         // slấy các giá trị từ thuộc tính của lớp Word add vào cột của table
         TableCl.setCellValueFactory(new PropertyValueFactory<>("English"));
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // set các gt trong fil có kiểu word
             filteredList.setPredicate(word -> {
                 // xét trường hợp ô nhập vào rỗng
                 if (newValue == null || newValue.isEmpty()) {
@@ -135,9 +136,9 @@ public class Controller {
 
     public void MouseClick() { // chú ý chuyển va, a-v và về textfile
 
-        engine = Explain.getEngine();press=false;
+        engine = Explain.getEngine();
         table.setOnMouseClicked(event -> {
-
+            press=false;
             try {
                 engine.reload();
                 Word chooseWord = table.getSelectionModel().getSelectedItem();
@@ -203,7 +204,7 @@ public class Controller {
 
     public void add(ActionEvent evt) throws Exception {
         newString=getNewString();
-        javafx.scene.control.Dialog<Pair<String, String>> dialog = new Dialog<>();
+        javafx.scene.control.Dialog<Pair<String, String>> dialog = new Dialog<>();//thiet l
         dialog.setTitle("Add new Word");
         dialog.setHeaderText("Input your Word");
         ButtonType input= new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
@@ -418,13 +419,13 @@ public class Controller {
 
     @FXML
     private void exit(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);//khởi tạo một hộp thoiaj alert mới
         alert.setTitle("Delete Word");
         alert.setHeaderText("Are you sure want to exit ?");
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(
                 getClass().getResource("application.css").toExternalForm());
-        dialogPane.getStyleClass().add("myDialogSearch");
+        dialogPane.getStyleClass().add("myDialogSearch");//liên kết Css với họp thoại
         //alert.setContentText("C:/MyFile.txt");
         Optional<ButtonType> option = alert.showAndWait();
         if (option.get() == null && option.get() ==ButtonType.CANCEL) {
@@ -439,22 +440,23 @@ public class Controller {
     }
     public void Wiki() {
         System.out.println(press);
-        String URL="https://vi.wikipedia.org/wiki/";
-        Word chooseWord = table.getSelectionModel().getSelectedItem();
+        String URL="https://vi.wikipedia.org/wiki/";//lấy link
+        Word chooseWord = table.getSelectionModel().getSelectedItem();//lấy tư tim kiem trên table
         String str1="";
-        if (press == false) {
+        if (press == false) {//nếu false lấy  tư trong table để tìm kiếm
             str1 = chooseWord.getEnglish();
         }
-        else {
+        else {// lấy từ trên text để tìm kiếm
             str1 = textField.getText();
         }
         System.out.println(str1);
-        URL+= str1;
+        URL+= str1;// lấy link truy cập wiki
         engine=Explain.getEngine();
         engine.load(URL);
     }
     public void ggTrans() throws IOException, JavaLayerException {
-        InputStream sound;String str="",str1="";
+        InputStream sound;
+        String str="",str1="";
         Word chooseWord = table.getSelectionModel().getSelectedItem();
         if (press == false) {
             str1 = chooseWord.getEnglish();
@@ -463,7 +465,6 @@ public class Controller {
             str1 = textField.getText();
         }
         System.out.println(str1+ press);
-        if(textField.getText()!= null) {
             Audio audio = Audio.getInstance();
             if (num == 1) {
                 sound = audio.getAudio(str1, Language.VIETNAMESE);
@@ -475,6 +476,5 @@ public class Controller {
             audio.play(sound);
 
             engine.loadContent(str);
-        }
     }
 }

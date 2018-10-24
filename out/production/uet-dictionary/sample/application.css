@@ -6,17 +6,17 @@
     -fx-font-family: "Comic Sans MS"
 }
 .input {
-    -fx-border-color: rgb(57, 127, 90);
+    -fx-border-color: rgb(57, 127, 90);// viền
 }
 .menubutton {
-    -fx-background-color: rgba(202,229,232,1) ;
-    -fx-font-family: "Comic Sans MS";
+    -fx-background-color: rgba(202,229,232,1) ;// màuback
+    -fx-font-family: "Comic Sans MS";// phongchu
 }
 .top {
     -fx-background-color: rgba(202,229,232,1) ;
 }
 
-.round-red1 {
+.round-red1 {//nutadd
     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -27,7 +27,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
-.round-red2 {
+.round-red2 {//nutEdit
     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -38,7 +38,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
-.round-red3 {
+.round-red3 {//nutRemove
     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -49,7 +49,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
-.round-red4 {
+.round-red4 {//nutchuyendichAnh-Viet
     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -60,7 +60,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
-.round-red5 {
+.round-red5 {//nutViet-Anh
     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -71,7 +71,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
-.round-red6 {
+.round-red6 {//nutexit
     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -82,7 +82,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
-.round-red7 {
+.round-red7 {//nutTimkiem
     -fx-background-color: white;
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -93,7 +93,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
-.round-red8 {
+.round-red8 {//nutSpeak
     -fx-background-color:rgb(53, 127, 90);
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -104,7 +104,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:30,30;
 }
-.round-red9 {
+.round-red9 {//nutWiki
      -fx-background-color: rgb(53, 127, 90);
      -fx-background-radius: 30;
      -fx-background-insets: 0;
@@ -115,7 +115,7 @@
      -fx-background-repeat: no-repeat;
      -fx-background-size:30,30;
  }
-.round-red10 {
+.round-red10 {//NutGg
     -fx-background-color: rgb(53, 127, 90);
     -fx-background-radius: 30;
     -fx-background-insets: 0;
@@ -158,10 +158,10 @@
 }
 .myDialogSearch{
     -fx-background-color: #8fbc8f;
-    -fx-background-image:url("image/animal_4-08-512.png");
+    /*-fx-background-image:url("image/animal_4-08-512.png");
     -fx-background-position: 270 100;
     -fx-background-repeat: no-repeat;
-    -fx-background-size:100 110;
+    -fx-background-size:100 110;*/
 
 
 }
