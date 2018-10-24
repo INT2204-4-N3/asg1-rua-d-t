@@ -50,7 +50,7 @@ public class Controller {
     private WebEngine engine;
     private List<Word> list;
     private ListWordManager t;
-    private  KeyEvent keyevent;
+    private KeyEvent keyevent;
     private static int num;
     private Voice voice;
     private VoiceManager voiceManager;
@@ -61,12 +61,13 @@ public class Controller {
     private  BufferedReader file;
     private FileOutputStream File;
     private int count, count1, count2;
+    private boolean m;
 
     public Controller() {
         num=0;
         val="";
         ex="";
-        press=false;
+        press=true;
         count=0;
     }
     public int getNum() {
@@ -74,8 +75,8 @@ public class Controller {
     }
 
     public String getNewString() {
-        if(getNum()==0) { newString="src\\Sourse\\Anh-Viet.txt";}
-        else { newString="src\\Sourse\\Viet-Anh.txt";}
+        if(getNum()==0) { newString="src\\data\\Anh-Viet.txt";}
+        else { newString="src\\data\\Viet-Anh.txt";}
         return newString;
     }
     public void Exit() {
@@ -95,7 +96,7 @@ public class Controller {
     public void initialize() throws Exception {
         newString=getNewString();
         t = new ListWordManager();
-         t.CreatListWord(newString);
+        t.CreatListWord(newString);
         list = new ArrayList<Word>();
         Set<String> set = t.getList1().keySet();
         for (String key : set) {
@@ -129,11 +130,14 @@ public class Controller {
         table.setItems(sortedData);
 
     }
+    //su kien nhap chuot vao tu can tim kiem tren table
 
-    public void MouseClick() {
 
-        engine = Explain.getEngine();
+    public void MouseClick() { // chú ý chuyển va, a-v và về textfile
+
+        engine = Explain.getEngine();press=false;
         table.setOnMouseClicked(event -> {
+
             try {
                 engine.reload();
                 Word chooseWord = table.getSelectionModel().getSelectedItem();
@@ -143,6 +147,7 @@ public class Controller {
                 ex.printStackTrace();
             }
         });
+        System.out.println(press);
     }
     public void search() {
         try {
@@ -169,15 +174,14 @@ public class Controller {
     }
     public void Pressenter() {
         textField.setOnKeyPressed(event -> {
+            press=true;
             if(event.getCode()== KeyCode.ENTER) {
-                press=true;
                 val= textField.getText();
                 search();
             }
         });
     }
     public void butEnter() {
-        press=true;
         val= textField.getText();
         search();
     }
@@ -192,8 +196,6 @@ public class Controller {
             voice1= chooseWord.getEnglish();
         } else {
             voice1= val;
-            press=false;
-
         }
         voice.speak(voice1);
         voice.allocate();
@@ -259,6 +261,7 @@ public class Controller {
 
     }
     public void edit(ActionEvent evt) throws Exception{
+        m=false;
         newString=getNewString();
         count2=0;
         javafx.scene.control.Dialog<Pair<String, String>> dialog = new Dialog<>();
@@ -280,7 +283,6 @@ public class Controller {
         dialogPane.getStylesheets().add(
                 getClass().getResource("application.css").toExternalForm());
         dialogPane.getStyleClass().add("myDialogSearch");
-
         gridPane.add(new Label("Word: "),0,0);
         gridPane.add(word,1,0);
         gridPane.add(new Label("Change to: "),0,1);
@@ -304,15 +306,25 @@ public class Controller {
                         {
                             line = ex.getText()+ns1 ;
                             System.out.println("Line changed.");
+                            m=true;
                         }
                         if(count2==0) {input1.append(line);}
                         else { input1.append(System.lineSeparator()); input1.append(line);}
                         count2++;
                     }
-                    FileWriter fw=new FileWriter(newString);
-                    fw.write(input1.toString());
-                    file.close();
-                    fw.close();
+                    if(m== false) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Notice");
+                        alert.setHeaderText("Oh!! Sorry :((((");
+                        alert.setContentText("We don't find your word you want edit");
+                        alert.showAndWait();
+                    }
+                    else {
+                        FileWriter fw = new FileWriter(newString);
+                        fw.write(input1.toString());
+                        file.close();
+                        fw.close();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -329,6 +341,7 @@ public class Controller {
 
 
     public void Remove(ActionEvent evt)  throws Exception {
+        m=false;
         newString=getNewString();
         count1=0;
         javafx.scene.control.Dialog<Pair<String, String>> dialog = new Dialog<>();
@@ -348,7 +361,6 @@ public class Controller {
         dialogPane.getStylesheets().add(
                 getClass().getResource("application.css").toExternalForm());
         dialogPane.getStyleClass().add("myDialogSearch");
-
         gridPane.add(new Label("Word: "), 0, 0);
         gridPane.add(word, 1, 0);
 
@@ -371,15 +383,25 @@ public class Controller {
                             System.out.println(word.getText());
                             line = "";
                             System.out.println("Line deleted.");
+                            m=true;
                         }
                         if(count1==0) {input1.append(line);}
                         else { input1.append(System.lineSeparator()); input1.append(line);}
                         count1++;
                     }
-                    FileWriter fw=new FileWriter(newString);
-                    fw.write(input1.toString());
-                    file.close();
-                    fw.close();
+                    if(m== false) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Notice");
+                        alert.setHeaderText("Oh!! Sorry :((((");
+                        alert.setContentText("We don't find your word you want delete");
+                        alert.showAndWait();
+                    }
+                    else {
+                        FileWriter fw = new FileWriter(newString);
+                        fw.write(input1.toString());
+                        file.close();
+                        fw.close();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -398,7 +420,11 @@ public class Controller {
     private void exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Word");
-        alert.setHeaderText("Are you sure want to move this word ?");
+        alert.setHeaderText("Are you sure want to exit ?");
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("application.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialogSearch");
         //alert.setContentText("C:/MyFile.txt");
         Optional<ButtonType> option = alert.showAndWait();
         if (option.get() == null && option.get() ==ButtonType.CANCEL) {
@@ -412,22 +438,31 @@ public class Controller {
 
     }
     public void Wiki() {
+        System.out.println(press);
         String URL="https://vi.wikipedia.org/wiki/";
         Word chooseWord = table.getSelectionModel().getSelectedItem();
-        String explain= chooseWord.getEnglish();
-        URL+= explain;
+        String str1="";
+        if (press == false) {
+            str1 = chooseWord.getEnglish();
+        }
+        else {
+            str1 = textField.getText();
+        }
+        System.out.println(str1);
+        URL+= str1;
         engine=Explain.getEngine();
         engine.load(URL);
     }
     public void ggTrans() throws IOException, JavaLayerException {
-        InputStream sound;String str,str1;
+        InputStream sound;String str="",str1="";
         Word chooseWord = table.getSelectionModel().getSelectedItem();
         if (press == false) {
             str1 = chooseWord.getEnglish();
-        } else {
-            str1 = textField.getText();
-            press = false;
         }
+        else {
+            str1 = textField.getText();
+        }
+        System.out.println(str1+ press);
         if(textField.getText()!= null) {
             Audio audio = Audio.getInstance();
             if (num == 1) {
@@ -442,6 +477,4 @@ public class Controller {
             engine.loadContent(str);
         }
     }
-
-
 }

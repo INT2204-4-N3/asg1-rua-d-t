@@ -56,7 +56,7 @@
     -fx-text-fill: white;
 
     -fx-background-image:url("image/Anh.png");
-    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-position: 8 2;/* vị trí ảnh trong button*/
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
@@ -67,7 +67,7 @@
     -fx-text-fill: white;
 
     -fx-background-image:url("image/Viet.png");
-    -fx-background-position: 8 4;/* vị trí ảnh trong button*/
+    -fx-background-position: 8 2;/* vị trí ảnh trong button*/
     -fx-background-repeat: no-repeat;
     -fx-background-size:30 30;
 }
@@ -83,7 +83,7 @@
     -fx-background-size:30 30;
 }
 .round-red7 {
-    -fx-background-color: linear-gradient(rgb(243, 243, 243),rgb(243, 243, 243));
+    -fx-background-color: white;
     -fx-background-radius: 30;
     -fx-background-insets: 0;
     -fx-text-fill: white;
@@ -94,7 +94,7 @@
     -fx-background-size:30 30;
 }
 .round-red8 {
-    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-color:rgb(53, 127, 90);
     -fx-background-radius: 30;
     -fx-background-insets: 0;
     -fx-text-fill: white;
@@ -105,7 +105,7 @@
     -fx-background-size:30,30;
 }
 .round-red9 {
-     -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+     -fx-background-color: rgb(53, 127, 90);
      -fx-background-radius: 30;
      -fx-background-insets: 0;
      -fx-text-fill: white;
@@ -116,7 +116,7 @@
      -fx-background-size:30,30;
  }
 .round-red10 {
-    -fx-background-color: linear-gradient(rgb(53, 127, 90),rgb(53, 127, 90));
+    -fx-background-color: rgb(53, 127, 90);
     -fx-background-radius: 30;
     -fx-background-insets: 0;
     -fx-text-fill: white;
@@ -145,16 +145,25 @@
     -fx-background-insets: 0;
     -fx-border-color: rgb(57, 127, 90);
 }
-
-.pane {
+.pane1{
     -fx-background-color:  #8fbc8f;
+}
+.pane {
+
     -fx-background-image:url("image/animal_4-08-512.png"), url("image/q.png");
+    -fx-background-color:  #8fbc8f;
     -fx-background-position: 8 19, 0 0;/* vị trí ảnh*/
     -fx-background-repeat: no-repeat;
-    -fx-background-size:50 50, 750 183;
+    -fx-background-size:50 50, 965 225;
 }
 .myDialogSearch{
     -fx-background-color: #8fbc8f;
+    -fx-background-image:url("image/animal_4-08-512.png");
+    -fx-background-position: 270 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:100 110;
+
+
 }
 .myDialogSearch > *.button-bar > *.container{
     -fx-background-color: #8fbc8f;

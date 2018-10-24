@@ -7,45 +7,59 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <bottom>
-   </bottom>
-   <center>
-      <WebView fx:id="Explain" prefHeight="412.0" prefWidth="509.0" styleClass="WebView" BorderPane.alignment="CENTER" />
-   </center>
-   <left>
-      <AnchorPane prefHeight="351.0" prefWidth="148.0" BorderPane.alignment="CENTER">
-         <children>
-            <TableView fx:id="table" layoutY="-22.0" prefHeight="437.0" prefWidth="262.0">
-               <columns>
-                  <TableColumn fx:id="TableCl" prefWidth="222.0" styleClass="ListWord" text="Menu Word" />
-               </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-   </left>
-   <top>
-      <AnchorPane prefHeight="183.0" prefWidth="750.0" styleClass="pane" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="textField" layoutX="1.0" layoutY="121.0" prefHeight="35.0" prefWidth="227.0" promptText="Search" styleClass="input" />
-            <Button layoutX="1.0" layoutY="155.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="127.0" styleClass="round-red4" text="  Anh- Việt" textFill="#464343" />
-            <Button layoutX="128.0" layoutY="155.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="133.0" styleClass="round-red5" text="  Việt- Anh" textFill="#211f1fd6" />
-            <Button fx:id="add" layoutX="578.0" layoutY="1.0" mnemonicParsing="false" onAction="#add" prefHeight="36.0" prefWidth="42.0" styleClass="round-red1" textFill="#367c54f7" />
-            <Button fx:id="edit" layoutX="621.0" layoutY="1.0" mnemonicParsing="false" onAction="#edit" prefHeight="35.0" prefWidth="39.0" styleClass="round-red2" />
-            <Button fx:id="remove" layoutX="660.0" layoutY="1.0" mnemonicParsing="false" onAction="#Remove" prefHeight="35.0" prefWidth="39.0" styleClass="round-red3" textAlignment="RIGHT" />
-            <Button fx:id="exit" layoutX="698.0" layoutY="1.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="40.0" styleClass="round-red6" />
-            <Label layoutX="84.0" layoutY="43.0" prefHeight="33.0" prefWidth="130.0" textFill="#8a2b2b">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="975.0" styleClass="pane1" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <bottom>
+    </bottom>
+    <left>
+        <AnchorPane prefHeight="351.0" prefWidth="148.0" BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="table" layoutY="-25.0" prefHeight="402.0" prefWidth="262.0">
+                    <columns>
+                        <TableColumn fx:id="TableCl" prefWidth="261.00001525878906" styleClass="ListWord" text="Menu Word" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </left>
+    <top>
+        <AnchorPane id="pane" prefHeight="209.0" prefWidth="1000.0" styleClass="pane" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="textField" layoutX="1.0" layoutY="155.0" prefHeight="38.0" prefWidth="260.0" promptText="Search" />
+                <Button id="round-red5" layoutY="194.0" mnemonicParsing="false" onAction="#Eng" prefHeight="30.0" prefWidth="113.0" styleClass="round-red4" text="English">
                <font>
-                  <Font name="Comic Sans MS" size="18.0" />
-               </font></Label>
-            <Button layoutX="229.0" layoutY="117.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="38.0" styleClass="round-red7" />
-            <Button layoutX="548.0" layoutY="141.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="53.0" styleClass="round-red8" />
-            <Button layoutX="677.0" layoutY="141.0" mnemonicParsing="false" onAction="#Wiki" prefHeight="42.0" prefWidth="52.0" styleClass="round-red9" />
-            <Button layoutX="616.0" layoutY="141.0" mnemonicParsing="false" onAction="#ggTrans" prefHeight="41.0" prefWidth="52.0" styleClass="round-red10" />
-         </children>
-      </AnchorPane>
-   </top>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font></Button>
+                <Button id="round-red4" layoutX="112.0" layoutY="194.0" mnemonicParsing="false" onAction="#Viet" prefHeight="30.0" prefWidth="112.0" styleClass="round-red5" text="    Tiếng Việt">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font></Button>
+                <Button id="round-red1" layoutX="765.0" layoutY="2.0" mnemonicParsing="false" onAction="#add" prefHeight="36.0" prefWidth="42.0" styleClass="round-red1" />
+                <Button id="round-red3" fx:id="remove" layoutX="822.0" layoutY="3.0" mnemonicParsing="false" onAction="#Remove" prefHeight="35.0" prefWidth="39.0" styleClass="round-red3" />
+                <Button id="round-red6" fx:id="exit" layoutX="926.0" layoutY="3.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="40.0" styleClass="round-red6" />
+                <Button id="round-red2" fx:id="edit" layoutX="874.0" layoutY="3.0" mnemonicParsing="false" onAction="#edit" prefHeight="35.0" prefWidth="39.0" styleClass="round-red2" />
+                <Button id="round-red7" layoutX="216.0" layoutY="156.0" mnemonicParsing="false" onAction="#butEnter" prefHeight="36.0" prefWidth="42.0" styleClass="round-red7" />
+                <Button id="round-red8" fx:id="speakbutton" layoutX="262.0" layoutY="194.0" mnemonicParsing="false" onAction="#clickspeak" prefHeight="34.0" prefWidth="38.0" styleClass="round-red8" />
+                <Label layoutX="84.0" layoutY="43.0" prefHeight="33.0" prefWidth="130.0" textFill="#8a2b2b">
+                    <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                    </font>
+                </Label>
+                <Button id="GG" fx:id="GG" layoutX="816.0" layoutY="174.0" mnemonicParsing="false" onAction="#ggTrans" prefHeight="41.0" prefWidth="52.0" styleClass="round-red10" />
+                <Button id="round-red9" layoutX="900.0" layoutY="174.0" mnemonicParsing="false" onAction="#Wiki" prefHeight="41.0" prefWidth="52.0" styleClass="round-red9" />
+            </children>
+        </AnchorPane>
+    </top>
+    <bottom>
+        <AnchorPane prefHeight="5.0" prefWidth="975.0" BorderPane.alignment="CENTER" />
+    </bottom>
+   <right>
+        <WebView id="Explain" fx:id="Explain" prefHeight="380.0" prefWidth="709.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <Pane prefHeight="382.0" prefWidth="10.0" styleClass="pane1" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
