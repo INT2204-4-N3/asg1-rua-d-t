@@ -97,7 +97,6 @@ public class FileLevelLoader extends LevelLoader {
 							new Wall(x, y, Sprite.wall)));
 				}
 				else if(_map[x][y]==42) {
-					//System.out.println(x+" "+y);
 					_board.addEntity(pos,
 							new LayeredEntity(x, y,
 									new Grass(x,y,Sprite.grass), // item dưới brick
@@ -110,7 +109,7 @@ public class FileLevelLoader extends LevelLoader {
 					_board.addEntity(pos,
 							new LayeredEntity(x, y,
 									new Grass(x,y,Sprite.grass),
-									new BombItem(x, y, Sprite.powerup_bombs),
+									new BombItem(x, y, Sprite.powerup_bombs,_board),
 									new Brick(x, y, Sprite.brick,_board)
 							)
 					);
@@ -146,20 +145,17 @@ public class FileLevelLoader extends LevelLoader {
 							)
 					);
 				}
+				else if(_map[x][y]==112) {
+					_board.addCharacter( new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board) );
+					Screen.setOffset(0, 0);
+					_board.addEntity(x + y * _width, new Grass(x, y, Sprite.grass)); // chèn thêm glass dưới chân bomber
+				}
 				else {
 					_board.addEntity(pos, new Grass(x, y, Sprite.grass));
 				}
 				System.out.println("\n");
 			}
 		}
-
-		// thêm Bomber
-		int xBomber = 3, yBomber = 1;
-		// add 1 con bomber mặc định đứng sang phải
-		_board.addCharacter( new Bomber(Coordinates.tileToPixel(xBomber), Coordinates.tileToPixel(yBomber) + Game.TILES_SIZE, _board) );
-		Screen.setOffset(0, 0);
-		_board.addEntity(xBomber + yBomber * _width, new Grass(xBomber, yBomber, Sprite.grass)); // chèn thêm glass dưới chân bomber
-
 		// thêm Enemy
 		Random rd= new Random();
 		Entity e = null;int xE1=0, yE1=0;

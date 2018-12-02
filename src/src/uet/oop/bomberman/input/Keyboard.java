@@ -29,7 +29,6 @@ public class Keyboard implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		Bomber._movin2=true;
 		keys[e.getKeyCode()] = true;
 
 
@@ -38,7 +37,6 @@ public class Keyboard implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		Bomber._movin2=false;
 		keys[e.getKeyCode()] = false;
 		
 	}

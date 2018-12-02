@@ -106,7 +106,7 @@ public class Flame extends Entity {
 
 				} else if (t instanceof Brick) {
 					_board.addCharacter(new Oneal(Coordinates.tileToPixel(x1), Coordinates.tileToPixel(y1) + Game.TILES_SIZE, _board));
-					_board.addEntity(x1 + y1 * LevelLoader.getWidth(), new BombItem(x1, y1, Sprite.grass));
+					_board.addEntity(x1 + y1 * LevelLoader.getWidth(), new BombItem(x1, y1, Sprite.grass,_board));
 
 				}
 				else if (t instanceof Grass) { // đk là cỏ và tạo đó ko có nhân vật

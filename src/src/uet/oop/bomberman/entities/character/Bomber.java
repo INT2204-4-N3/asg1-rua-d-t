@@ -7,34 +7,18 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.LayeredEntity;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.bomb.FlameSegment;
-import uet.oop.bomberman.entities.character.enemy.Balloon;
 import uet.oop.bomberman.entities.character.enemy.Enemy;
-import uet.oop.bomberman.entities.tile.Grass;
-import uet.oop.bomberman.entities.tile.Wall;
-import uet.oop.bomberman.entities.tile.destroyable.Brick;
-import uet.oop.bomberman.entities.tile.item.Item;
-import uet.oop.bomberman.exceptions.LoadLevelException;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
-import uet.oop.bomberman.graphics.SpriteSheet;
 import uet.oop.bomberman.input.Keyboard;
 import uet.oop.bomberman.level.Coordinates;
-import uet.oop.bomberman.level.FileLevelLoader;
-import uet.oop.bomberman.level.LevelLoader;
-
 import java.io.FileInputStream;
 import java.util.Iterator;
 import java.util.List;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class Bomber extends Character {
     private List<Bomb> _bombs;
     protected Keyboard _input;
-    public static boolean _movin2 =true;
 
     /**
      * nếu giá trị này < 0 thì cho phép đặt đối tượng Bomb tiếp theo,
@@ -47,6 +31,7 @@ public class Bomber extends Character {
         _bombs = _board.getBombs();
         _input = _board.getInput();
         _sprite = Sprite.player_right;
+        _moving=false;
     }
 
     @Override
@@ -149,11 +134,12 @@ public class Bomber extends Character {
     @Override
     protected void calculateMove() {
         int _x1=0, _y1=0;
-        if(_input.up) { _direction =5;_y1--; }
-        else if(_input.down) { _direction =7;_y1++;}
-        else if(_input.right) { _direction =6;_x1++;}
-        else if (_input.left){_direction =8;_x1--;}
-        else if(_input.space) { _direction=9;}
+        if(_input.up) { _direction =5;_y1--; _moving=true; }
+        else if(_input.down) { _direction =7;_y1++; _moving=true;}
+        else if(_input.right) { _direction =6;_x1++; _moving=true;}
+        else if (_input.left){_direction =8;_x1--; _moving=true;}
+        else if(_input.space) { _direction=9; _moving=true;}
+        else {_moving=false;}
         move(_x1*Game.getBomberSpeed(), _y1* Game.getBomberSpeed());
 
 
@@ -198,26 +184,26 @@ public class Bomber extends Character {
             switch (this._direction) {
                 case 5:
                     _sprite = Sprite.player_up;
-                    if (_movin2) {
+                    if (_moving) {
                         _sprite = Sprite.movingSprite(Sprite.player_up_1, Sprite.player_up_2, _animate, 30);
                     }
                     break;
                 case 6:
                     _sprite = Sprite.player_right;
-                    if (_movin2) {
+                    if (_moving) {
                         _sprite = Sprite.movingSprite(Sprite.player_right_1, Sprite.player_right_2, _animate, 30);
                     }
                     break;
                 case 7:
                     _sprite = Sprite.player_down;
-                    if (_movin2 ) {
+                    if (_moving ) {
                         _sprite = Sprite.movingSprite(Sprite.player_down_1, Sprite.player_down_2, _animate, 30);
                     }
                     break;
                 case 8:
 
                     _sprite = Sprite.player_left;
-                    if (_movin2) {
+                    if (_moving) {
                         _sprite = Sprite.movingSprite(Sprite.player_left_1, Sprite.player_left_2, _animate, 30);
                     }
                     break;

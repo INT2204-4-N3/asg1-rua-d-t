@@ -25,7 +25,7 @@ public class Game extends Canvas {
 	
 	public static final String TITLE = "BombermanGame";
 	
-	private static final int BOMBRATE = 10;
+	private static final int BOMBRATE = 2;// quả bom đối đa có thể thả
 	private static final int BOMBRADIUS = 1;
 	private static final double BOMBERSPEED = 1.0;
 	private static final int BALLONSIZE = -1;
