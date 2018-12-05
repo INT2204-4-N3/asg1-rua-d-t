@@ -95,7 +95,6 @@ public class Board implements IRender {
 		_bombs.clear();
 		_messages.clear();
 		Game.BallonSize+=2;
-		Game.KonoSize+=1;
 		Game.bombRadius=1;
 		
 		try {

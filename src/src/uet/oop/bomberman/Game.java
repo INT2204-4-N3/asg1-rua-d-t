@@ -25,21 +25,22 @@ public class Game extends Canvas {
 	
 	public static final String TITLE = "BombermanGame";
 	
-	private static final int BOMBRATE = 2;// quả bom đối đa có thể thả
+	private static final int BOMBRATE = 2;
 	private static final int BOMBRADIUS = 1;
 	private static final double BOMBERSPEED = 1.0;
 	private static final int BALLONSIZE = -1;
-	private static final int KONOSIZE = -1;
+
 	
 	public static final int TIME = 200;
 	public static final int POINTS = 0;
 	
 	protected static int SCREENDELAY = 3;
 	protected static int BallonSize = BALLONSIZE;
-	protected static int KonoSize = KONOSIZE;
 	protected static int bombRate = BOMBRATE;
 	protected static int bombRadius = BOMBRADIUS;
 	protected static double bomberSpeed = BOMBERSPEED;
+	public static int heart = 1;
+
 	
 	
 	protected int _screenDelay = SCREENDELAY;
@@ -191,7 +192,10 @@ public class Game extends Canvas {
 	public static void addBombRadius(int i) {
 		bombRadius += i;
 	}
-	
+
+	public static void addBombHeart(int i) {
+		heart+= i;
+	}
 	public static void addBombRate(int i) {
 		bombRate += i;
 	}
@@ -215,7 +219,11 @@ public class Game extends Canvas {
 	public static int getBallonSize() {
 		return BallonSize;
 	}
-	public static int getKonSize() {
-		return KonoSize;
+	public static int getHeart() {
+		return heart;
+	}
+
+	public static void setHeart(int heart) {
+		Game.heart = heart;
 	}
 }

@@ -72,7 +72,6 @@ public class FlameSegment extends Entity {
 			((Character) e).kill();
 		}
 		if(e instanceof Brick) {
-			//System.out.println("Quy");
 			((Brick)e).collide(this);
 		}
 		// TODO: xử lý khi FlameSegment va chạm với Character

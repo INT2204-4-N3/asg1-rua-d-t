@@ -38,8 +38,6 @@ public class Bomb extends AnimatedEntitiy {
 	
 	@Override
 	public void update() {
-		//Entity e= _board.getEntityAt(0,0);
-		//collide(e); // bom no lien hoan
 		if(_timeToExplode > 0) {
 			_timeToExplode--;
 		}
